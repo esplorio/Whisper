@@ -33,7 +33,7 @@ public struct Announcement {
 }
 
 public struct Murmur {
-
+  public var height: CGFloat?
   public var title: String
   public var backgroundColor: UIColor
   public var titleColor: UIColor

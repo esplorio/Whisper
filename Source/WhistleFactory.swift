@@ -63,6 +63,11 @@ open class WhistleFactory: UIViewController {
     titleLabel.font = murmur.font
     titleLabel.textColor = murmur.titleColor
     view.backgroundColor = murmur.backgroundColor
+
+    if let height = murmur.height {
+      titleLabelHeight = height
+    }
+
     whistleWindow.backgroundColor = murmur.backgroundColor
 
     moveWindowToFront()
