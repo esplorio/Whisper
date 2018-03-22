@@ -21,15 +21,6 @@ open class ShoutView: UIView {
     return view
     }()
 
-  open fileprivate(set) lazy var indicatorView: UIView = {
-    let view = UIView()
-    view.backgroundColor = ColorList.Shout.dragIndicator
-    view.layer.cornerRadius = Dimensions.indicatorHeight / 2
-    view.isUserInteractionEnabled = true
-
-    return view
-    }()
-
   open fileprivate(set) lazy var imageView: UIImageView = {
     let imageView = UIImageView()
     imageView.layer.cornerRadius = Dimensions.imageSize / 2
@@ -86,7 +77,8 @@ open class ShoutView: UIView {
     super.init(frame: frame)
 
     addSubview(backgroundView)
-    [imageView, titleLabel, subtitleLabel, indicatorView].forEach {
+    let views: [UIView] = [imageView, titleLabel, subtitleLabel]
+    views.forEach {
       $0.autoresizingMask = []
       backgroundView.addSubview($0)
     }
@@ -189,11 +181,6 @@ open class ShoutView: UIView {
       backgroundView.frame = CGRect(x: 0, y: safeYCoordinate,
                                     width: frame.size.width,
                                     height: frame.size.height - Dimensions.touchOffset)
-
-      indicatorView.frame = CGRect(x: (backgroundView.frame.size.width - Dimensions.indicatorWidth) / 2,
-                                   y: backgroundView.frame.height - Dimensions.indicatorHeight - 5,
-                                   width: Dimensions.indicatorWidth,
-                                   height: Dimensions.indicatorHeight)
     }
   }
 
