@@ -16,7 +16,6 @@ open class ShoutView: UIView {
   open fileprivate(set) lazy var backgroundView: UIView = {
     let view = UIView()
     view.backgroundColor = ColorList.Shout.background
-    view.alpha = 0.98
     view.clipsToBounds = true
 
     return view
@@ -153,7 +152,7 @@ open class ShoutView: UIView {
   // MARK: - Setup
 
   public func setupFrames() {
-    internalHeight = (UIApplication.shared.isStatusBarHidden ? 55 : 65)
+    internalHeight = 49
 
     let totalWidth = UIScreen.main.bounds.width
     let offset: CGFloat = UIApplication.shared.isStatusBarHidden ? 2.5 : 5
