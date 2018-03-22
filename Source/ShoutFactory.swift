@@ -143,9 +143,10 @@ open class ShoutView: UIView {
   open func shout(to controller: UIViewController) {
     controller.view.addSubview(self)
 
-    frame.size.height = 0
+    frame.size.height = self.internalHeight + Dimensions.touchOffset
+    frame.origin.y = -bounds.height
     UIView.animate(withDuration: 0.35, animations: {
-      self.frame.size.height = self.internalHeight + Dimensions.touchOffset
+      self.frame.origin.y = 0
     })
   }
 
@@ -201,7 +202,7 @@ open class ShoutView: UIView {
 
   open func silent() {
     UIView.animate(withDuration: 0.35, animations: {
-      self.frame.size.height = 0
+      self.frame.origin.y = -self.bounds.height
       }, completion: { finished in
         self.completion?()
         self.displayTimer.invalidate()
