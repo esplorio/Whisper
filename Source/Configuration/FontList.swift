@@ -3,8 +3,8 @@ import UIKit
 public struct FontList {
 
   public struct Shout {
-    public static var title = UIFont.boldSystemFont(ofSize: 15)
-    public static var subtitle = UIFont.systemFont(ofSize: 13)
+    public static var title = UIFont(name: "Avenir-Medium", size: 14)
+    public static var subtitle = UIFont(name: "Avenir-Medium", size: 12)
   }
 
   public struct Whistle {

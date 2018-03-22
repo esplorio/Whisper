@@ -7,9 +7,9 @@ open class ShoutView: UIView {
   public struct Dimensions {
     public static let indicatorHeight: CGFloat = 6
     public static let indicatorWidth: CGFloat = 50
-    public static let imageSize: CGFloat = 48
-    public static let imageOffset: CGFloat = 18
-    public static var textOffset: CGFloat = 75
+    public static let imageSize: CGFloat = 32
+    public static let imageOffset: CGFloat = 15
+    public static var textOffset: CGFloat = 60
     public static var touchOffset: CGFloat = 40
   }
 
@@ -153,7 +153,7 @@ open class ShoutView: UIView {
 
     let totalWidth = UIScreen.main.bounds.width
     let offset: CGFloat = UIApplication.shared.isStatusBarHidden ? 2.5 : 5
-    let textOffsetX: CGFloat = imageView.image != nil ? Dimensions.textOffset : 18
+    let textOffsetX: CGFloat = imageView.image != nil ? Dimensions.textOffset : 15
     let imageSize: CGFloat = imageView.image != nil ? Dimensions.imageSize : 0
 
     [titleLabel, subtitleLabel].forEach {
