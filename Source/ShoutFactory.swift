@@ -147,7 +147,6 @@ open class ShoutView: UIView {
     internalHeight = 49
 
     let totalWidth = UIScreen.main.bounds.width
-    let offset: CGFloat = UIApplication.shared.isStatusBarHidden ? 2.5 : 5
     let textOffsetX: CGFloat = imageView.image != nil ? Dimensions.textOffset : 15
     let imageSize: CGFloat = imageView.image != nil ? Dimensions.imageSize : 0
 
@@ -158,17 +157,13 @@ open class ShoutView: UIView {
 
     internalHeight += subtitleLabel.frame.height
 
-    imageView.frame = CGRect(x: Dimensions.imageOffset, y: (internalHeight - imageSize) / 2 + offset,
+    imageView.frame = CGRect(x: Dimensions.imageOffset,
+                             y: (internalHeight - imageSize) / 2,
       width: imageSize, height: imageSize)
 
-    let textOffsetY = imageView.image != nil ? imageView.frame.origin.x + 3 : textOffsetX + 5
-
-    titleLabel.frame.origin = CGPoint(x: textOffsetX, y: textOffsetY)
+    titleLabel.frame.origin = CGPoint(x: textOffsetX, y: 0)
+    titleLabel.center.y = internalHeight / 2
     subtitleLabel.frame.origin = CGPoint(x: textOffsetX, y: titleLabel.frame.maxY + 2.5)
-
-    if subtitleLabel.text?.isEmpty ?? true {
-      titleLabel.center.y = imageView.center.y - 2.5
-    }
 
     frame = CGRect(x: 0, y: safeYCoordinate,
                    width: totalWidth, height: internalHeight + Dimensions.touchOffset)
